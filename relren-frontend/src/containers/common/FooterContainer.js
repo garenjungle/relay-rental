@@ -21,11 +21,28 @@ class FooterContainer extends Component {
     BaseActions.initializeLoginModal();
   };
 
+  handleSignupClick = async () => {
+    const { BaseActions, logged } = this.props;
+    if (logged) {
+      try {
+        await BaseActions.logout();
+        window.location.reload(); // 페이지 새로고침
+      } catch (e) {
+        console.log(e);
+      }
+      return;
+    }
+
+    BaseActions.showModal('signup');
+    BaseActions.initializeSignupModal();
+  };
+
   render() {
     const { handleLoginClick } = this;
+    const { handleSignupClick } = this;
     const { logged } = this.props;
 
-    return <Footer onLoginClick={handleLoginClick} logged={logged} />;
+    return <Footer onLoginClick={handleLoginClick} onSignupClick={handleSignupClick} logged={logged} />;
   }
 }
 
