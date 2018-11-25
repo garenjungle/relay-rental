@@ -6,10 +6,10 @@ import * as baseActions from 'store/modules/base';
 
 class LoginModalContainer extends Component {
   handleLogin = async () => {
-    const { BaseActions, password } = this.props;
+    const { BaseActions, userId, password } = this.props;
     try {
       // 로그인 시도, 성공하면 모달 닫기
-      await BaseActions.login(password);
+      await BaseActions.login(userId, password);
       BaseActions.hideModal('login');
       localStorage.logged = 'true';
     } catch (e) {
@@ -20,7 +20,12 @@ class LoginModalContainer extends Component {
     const { BaseActions } = this.props;
     BaseActions.hideModal('login');
   };
-  handleChange = e => {
+  handleUserIdChange = e => {
+    const { value } = e.target;
+    const { BaseActions } = this.props;
+    BaseActions.changeIdInput(value);
+  };
+  handlePasswordChange = e => {
     const { value } = e.target;
     const { BaseActions } = this.props;
     BaseActions.changePasswordInput(value);
@@ -32,16 +37,18 @@ class LoginModalContainer extends Component {
     }
   };
   render() {
-    const { handleLogin, handleCancel, handleChange, handleKeyPress } = this;
-    const { visible, error, password } = this.props;
+    const { handleLogin, handleCancel, handleUserIdChange, handlePasswordChange, handleKeyPress } = this;
+    const { visible, error, password, userId } = this.props;
     return (
       <LoginModal
         onLogin={handleLogin}
         onCancel={handleCancel}
-        onChange={handleChange}
+        onUserIdChange={handleUserIdChange}
+        onPasswordChange={handlePasswordChange}
         onKeyPress={handleKeyPress}
         visible={visible}
         error={error}
+        userId={userId}
         password={password}
       />
     );
@@ -51,8 +58,9 @@ class LoginModalContainer extends Component {
 export default connect(
   state => ({
     visible: state.base.getIn(['modal', 'login']),
-    password: state.base.getIn(['loginModal', 'password']),
-    error: state.base.getIn(['loginModal', 'error']),
+    userId: state.base.getIn(['userModal', 'userId']),
+    password: state.base.getIn(['userModal', 'password']),
+    error: state.base.getIn(['userModal', 'error']),
   }),
   dispatch => ({
     BaseActions: bindActionCreators(baseActions, dispatch),

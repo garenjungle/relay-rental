@@ -11,9 +11,10 @@ const LOGIN = 'base/LOGIN';
 const LOGOUT = 'base/LOGOUT';
 const CHECK_LOGIN = 'base/CHECK_LOGIN';
 const SIGNUP = 'base/SIGNUP';
+const CHANGE_ID_INPUT = 'base/CHANGE_ID_INPUT';
 const CHANGE_PASSWORD_INPUT = 'base/CHANGE_PASSWORD_INPUT';
-const INITIALIZE_LOGIN_MODAL = 'base/INITIALIZE_LOGIN_MODAL';
-const INITIALIZE_SIGNUP_MODAL = 'base/INITIALIZE_SIGNUP_MODAL';
+const CHANGE_USERNAME_INPUT = 'base/CHANGE_USERNAME_INPUT';
+const INITIALIZE_USER_MODAL = 'base/INITIALIZE_USER_MODAL';
 
 const TEMP_LOGIN = 'base/TEMP_LOGIN';
 
@@ -25,9 +26,10 @@ export const login = createAction(LOGIN, api.login);
 export const logout = createAction(LOGOUT, api.logout);
 export const checkLogin = createAction(CHECK_LOGIN, api.checkLogin);
 export const signup = createAction(SIGNUP, api.signup);
+export const changeIdInput = createAction(CHANGE_ID_INPUT);
 export const changePasswordInput = createAction(CHANGE_PASSWORD_INPUT);
-export const initializeLoginModal = createAction(INITIALIZE_LOGIN_MODAL);
-export const initializeSignupModal = createAction(INITIALIZE_SIGNUP_MODAL);
+export const changeUserNameInput = createAction(CHANGE_USERNAME_INPUT);
+export const initializeUserModal = createAction(INITIALIZE_USER_MODAL);
 
 export const tempLogin = createAction(TEMP_LOGIN);
 
@@ -39,8 +41,10 @@ const initialState = Map({
     login: false, // 추후 구현
   }),
   // 로그인 모달 상태
-  loginModal: Map({
+  userModal: Map({
+    userId: '',
     password: '',
+    userName: '',
     error: false,
   }),
   logged: false, // 현재 로그인 상태
@@ -64,19 +68,19 @@ export default handleActions(
       },
       onError: (state, action) => {
         return state
-          .setIn(['loginModal', 'error'], true)
-          .setIn(['loginModal', 'password'], '');
+          .setIn(['userModal', 'error'], true)
+          .setIn(['userModal', 'password'], '');
       },
     }),
     ...pender({
       type: SIGNUP,
       onSuccess: (state, action) => {
-        return 1;//state.set('logged', true);
+        return state.set('logged', true);
       },
       onError: (state, action) => {
-        return 0;// 0 state
-          // .setIn(['loginModal', 'error'], true)
-          // .setIn(['loginModal', 'password'], '');
+        return state
+          .setIn(['userModal', 'error'], true)
+          .setIn(['userModal', 'password'], '');
       },
     }),
     ...pender({
@@ -86,17 +90,21 @@ export default handleActions(
         return state.set('logged', logged);
       },
     }),
+    [CHANGE_ID_INPUT]: (state, action) => {
+      const { payload: value } = action;
+      return state.setIn(['userModal', 'userId'], value);
+    },
     [CHANGE_PASSWORD_INPUT]: (state, action) => {
       const { payload: value } = action;
-      return state.setIn(['loginModal', 'password'], value);
+      return state.setIn(['userModal', 'password'], value);
     },
-    [INITIALIZE_LOGIN_MODAL]: (state, action) => {
+    [CHANGE_USERNAME_INPUT]: (state, action) => {
+      const { payload: value } = action;
+      return state.setIn(['userModal', 'userName'], value);
+    },
+    [INITIALIZE_USER_MODAL]: (state, action) => {
       // 로그인 모달의 상태를 초기 상태로 설정(텍스트/오류 초기화)
-      return state.set('loginModal', initialState.get('loginModal'));
-    },
-    [INITIALIZE_SIGNUP_MODAL]: (state, action) => {
-      // 회원가입 모달의 상태를 초기 상태로 설정(텍스트/오류 초기화)
-      return state.set('signupModal', initialState.get('signupModal'));
+      return state.set('userModal', initialState.get('userModal'));
     },
     [TEMP_LOGIN]: (state, action) => {
       return state.set('logged', true);

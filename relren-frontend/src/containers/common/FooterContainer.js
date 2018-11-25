@@ -6,35 +6,33 @@ import * as baseActions from 'store/modules/base';
 
 class FooterContainer extends Component {
   handleLoginClick = async () => {
-    const { BaseActions, logged } = this.props;
+    const { BaseActions, logged, userId } = this.props;
     if (logged) {
       try {
-        await BaseActions.logout();
+        await BaseActions.logout(userId);
         window.location.reload(); // 페이지 새로고침
       } catch (e) {
         console.log(e);
       }
       return;
     }
-
     BaseActions.showModal('login');
-    BaseActions.initializeLoginModal();
+    BaseActions.initializeUserModal();
   };
 
   handleSignupClick = async () => {
-    const { BaseActions, logged } = this.props;
+    const { BaseActions, logged, userId } = this.props;
     if (logged) {
       try {
-        await BaseActions.logout();
+        await BaseActions.logout(userId);
         window.location.reload(); // 페이지 새로고침
       } catch (e) {
         console.log(e);
       }
       return;
     }
-
     BaseActions.showModal('signup');
-    BaseActions.initializeSignupModal();
+    BaseActions.initializeUserModal();
   };
 
   render() {
@@ -49,6 +47,7 @@ class FooterContainer extends Component {
 export default connect(
   state => ({
     logged: state.base.get('logged'),
+    userId: state.base.getIn(['userModal', 'userId']),
   }),
   dispatch => ({
     BaseActions: bindActionCreators(baseActions, dispatch),
