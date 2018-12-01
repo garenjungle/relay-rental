@@ -39,6 +39,8 @@ const PostList = ({ posts }) => {
       />
     );
   });
+  console.log({postList});
+
   return <div className={cx('post-list')}>{postList}</div>;
 };
 

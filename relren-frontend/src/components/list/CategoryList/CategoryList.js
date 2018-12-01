@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import removeMd from 'remove-markdown';
+import { List } from 'immutable';
 
 const cx = classNames.bind(styles);
 
@@ -18,7 +19,7 @@ const CategoryItem = () => {
     asdasdasd
       <h2>
       dummy
-      <Link>dummy</Link>
+      {/* <Link>dummy</Link> */}
         {/* <Link to={`/post/${id}`}>{title}</Link> */}
       </h2>
       <div className={cx('date')}>asdasd</div>
@@ -30,7 +31,14 @@ const CategoryItem = () => {
 };
 
 const CategoryList = () => {
-  const posts = ['','','',''];
+  const posts = new List([1, 2, 3]);
+  posts.push("asdasd");
+  posts.push("asdasd");
+  posts.push("asdasd");
+
+  console.log("posts");
+  console.log({posts});
+
   // const categoryList = [<CategoryItem/>]
   const categoryList = posts.map(post => {
     // const { _id, title, body, publishedDate, tags } = post.toJS();
@@ -45,6 +53,8 @@ const CategoryList = () => {
       />
     );
   });
+  console.log("categoryList");
+  console.log({categoryList});
   return <div className={cx('category-list')}>{categoryList}</div>;
 };
 
