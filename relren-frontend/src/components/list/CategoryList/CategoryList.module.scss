@@ -1,9 +1,20 @@
 @import '../../../styles/utils';
 
 .category-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  // grid-gap: 1px;
+  // grid-auto-rows: minmax(100px, auto);
   .category-item {
-    padding: 1.5rem;
+    margin: 5%;
+    width: 90%;
+
+    height: 420px;
+    grid-column: 1 / 4;
+    // grid-row: 1;
+    padding: 1rem;
     transition: all 0.15s ease-in;
+    background: #FFFFFF;
     h2 {
       font-size: 2rem;
       font-weight: 400;
@@ -48,6 +59,37 @@
   }
   .category-item + .category-item {
     // 아이템 사이 여백
-    border-top: 1px solid $oc-gray-3;
+    // border-top: 20px solid $oc-gray-2;
   }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.one {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+.two { 
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+}
+.three {
+  grid-column: 1;
+  grid-row: 2 / 5;
+}
+.four {
+  grid-column: 3;
+  grid-row: 3;
+}
+.five {
+  grid-column: 2;
+  grid-row: 4;
+}
+.six {
+  grid-column: 3;
+  grid-row: 4;
 }

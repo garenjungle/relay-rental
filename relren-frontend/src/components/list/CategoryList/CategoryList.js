@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CategoryList.module.scss';
+
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -9,48 +10,33 @@ import { List } from 'immutable';
 const cx = classNames.bind(styles);
 
 const CategoryItem = () => {
-  // const tagList = tags.map(tag => (
-  //   <Link key={tag} to={`/tag/${tag}`}>
-  //     #{tag}
-  //   </Link>
-  // ));
   return (
-    <div className={cx('category-item')}>
-    asdasdasd
-      <h2>
-      dummy
-      {/* <Link>dummy</Link> */}
-        {/* <Link to={`/post/${id}`}>{title}</Link> */}
-      </h2>
-      <div className={cx('date')}>asdasd</div>
-      {/* <div className={cx('date')}>{moment(publishedDate).format('ll')}</div> */}
-      {/* <p>{removeMd(body)}</p> */}
-      {/* <div className={cx('tags')}>{tagList}</div> */}
+    <div className='row'>
+        <div className={cx('category-item')}>
+          <h2>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/img18/events/cybermonday/gw/cm_gw_DesktopGW_CYBERMONDAY_STATIC_CARD_1x_260x260._CB480371554_SY260_.jpg"/>
+          {/* <Link to={`/page/1`}>dummy</Link> */}
+          </h2>
+          <div className={cx('date')}>asdasd</div>
+        </div>
     </div>
   );
 };
 
 const CategoryList = () => {
-  const posts = new List([1, 2, 3]);
+  const posts = new List([1, 2, 3, 4]);
   posts.push("asdasd");
   posts.push("asdasd");
   posts.push("asdasd");
+  posts.push("asdasd");
+
 
   console.log("posts");
   console.log({posts});
 
-  // const categoryList = [<CategoryItem/>]
   const categoryList = posts.map(post => {
-    // const { _id, title, body, publishedDate, tags } = post.toJS();
     return (
-      <CategoryItem
-        // title={title}
-        // body={body}
-        // publishedDate={publishedDate}
-        // tags={tags}
-        // key={_id}
-        // id={_id}
-      />
+      <CategoryItem/>
     );
   });
   console.log("categoryList");

@@ -1,21 +1,24 @@
 @import '../../../styles/utils';
 
 .category-wrapper {
-  width: 1024px;
+  width: 90%;
+  height: 3000px;
+
   margin: 0 auto;
 
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  background: rgba($oc-gray-9, 0.05);
 
-  @include media('<wide') {
-    width: 768px;
-  }
-  @include media('<large') {
-    width: 512px;
-  }
-  @include media('<medium') {
-    width: 100%;
-  }
+  // @include media('<wide') {
+  //   width: 768px;
+  // }
+  // @include media('<large') {
+  //   width: 512px;
+  // }
+  // @include media('<medium') {
+  //   width: 100%;
+  // }
 }
