@@ -13,11 +13,15 @@ const CategoryItem = () => {
   return (
     <div className='row'>
         <div className={cx('category-item')}>
-          <h2>
-            <img src="https://images-na.ssl-images-amazon.com/images/G/01/img18/events/cybermonday/gw/cm_gw_DesktopGW_CYBERMONDAY_STATIC_CARD_1x_260x260._CB480371554_SY260_.jpg"/>
-          {/* <Link to={`/page/1`}>dummy</Link> */}
-          </h2>
-          <div className={cx('date')}>asdasd</div>
+          <h3>
+            GoPro
+          </h3>
+          <Link to={`/page/1`}>
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/img18/events/cybermonday/gw/cm_gw_DesktopGW_CYBERMONDAY_STATIC_CARD_1x_260x260._CB480371554_SY260_.jpg"/>
+          </Link>
+          <div className={cx('date')}>
+           You can rent GoPro anytime anywhere !
+          </div>
         </div>
     </div>
   );
