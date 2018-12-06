@@ -9,18 +9,20 @@ import { List } from 'immutable';
 
 const cx = classNames.bind(styles);
 
-const CategoryItem = () => {
+const CategoryItem = ({url,title,content}) => {
+  console.log('CategoryItem')
+  console.log(url);
   return (
     <div className='row'>
         <div className={cx('category-item')}>
           <h3>
-            GoPro
+            {title}
           </h3>
           <Link to={`/page/1`}>
-              <img src="https://images-na.ssl-images-amazon.com/images/G/01/img18/events/cybermonday/gw/cm_gw_DesktopGW_CYBERMONDAY_STATIC_CARD_1x_260x260._CB480371554_SY260_.jpg"/>
+              <img src={url}/>
           </Link>
           <div className={cx('date')}>
-           You can rent GoPro anytime anywhere !
+           {content}
           </div>
         </div>
     </div>
@@ -28,24 +30,40 @@ const CategoryItem = () => {
 };
 
 const CategoryList = () => {
-  const posts = new List([1, 2, 3, 4]);
-  posts.push("asdasd");
-  posts.push("asdasd");
-  posts.push("asdasd");
-  posts.push("asdasd");
+  const posts = new List([
+    {url:'https://m.media-amazon.com/images/I/917LEZ+it3L._AC_SX200_SY200_.jpg',
+      text: "Drawings me opinions returned absolute in. Friend are day own either lively new. ",
+      title: "Camera"
+    },
+    {url:'https://images-na.ssl-images-amazon.com/images/I/41Cv21vkL9L._AC_SY200_.jpg',
+      text: "Otherwise therefore sex did are unfeeling something. Certain be ye amiable by exposed so. ",
+      title: "Headset"
+    },
+    {url:'https://images-na.ssl-images-amazon.com/images/I/51I%2BteGzpCL._AC_SY200_.jpg',
+      text: "Coming either suffer living her gay theirs. Furnished do otherwise daughters contented conveying attempted no.",
+      title: "Joystick"
+    },
+    {url:'https://images-na.ssl-images-amazon.com/images/I/41Cq%2BW%2BIooL._AC_SY200_.jpg',
+      text: "Friend are day own either lively new. ",
+      title: "Laptop"
+    },
+   ]);
 
-
-  console.log("posts");
-  console.log({posts});
-
-  const categoryList = posts.map(post => {
+   const categoryList = posts.map(post => {
     return (
-      <CategoryItem/>
+      <CategoryItem url={post.url} title={post.title} content={post.text}/>
     );
   });
-  console.log("categoryList");
-  console.log({categoryList});
-  return <div className={cx('category-list')}>{categoryList}</div>;
+
+
+  return (
+    <div>
+      <div className={cx('category-list')}>{categoryList}</div>
+      <div className={cx('category-list')}>{categoryList}</div>
+      <div className={cx('category-list')}>{categoryList}</div>
+      <div className={cx('category-list')}>{categoryList}</div>
+    </div>
+  );
 };
 
 export default CategoryList;
