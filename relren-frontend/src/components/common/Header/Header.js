@@ -10,24 +10,44 @@ const Header = ({ postId, logged, onRemove }) => (
   <header className={cx('header')}>
     <div className={cx('header-content')}>
       <div className={cx('brand')}>
-        <Link to="/">reactblog</Link>
+        <Link to="/">RelayRental.com</Link>
       </div>
+      <form accept-charset="utf-8" action="/s/ref=nb_sb_noss" className={cx('nav-searchbar')} method="GET" name="site-search" role="search">
+        <div className={cx('nav-fill')}>
+          <input type="text" id="twotabsearchtextbox" value="" name="field-keywords" autocomplete="off" placeholder="" className={cx('nav-input')} dir="auto" tabindex="19"></input>
+        </div>
+        <div className={cx("nav-right")}>
+          <button className={cx("button")}>Search</button>
+        </div>
+      </form>
       {logged && (
         <div className={cx('right')}>
           {// flex를 유지하려고 배열 형태로 렌더링합니다.
           postId && [
             <Button key="edit" theme="outline" to={`/editor?id=${postId}`}>
-              수정
+              Modify
             </Button>,
             <Button key="remove" theme="outline" onClick={onRemove}>
-              삭제
+              Delete
             </Button>,
           ]}
-          <Button theme="outline" to="/editor">
-            새 포스트
-          </Button>
+          {/* <Button theme="outline" to="/editor">
+            New Post
+          </Button> */}
         </div>
       )}
+    </div>
+    <div className={cx("nav-main")}>
+          <div></div>
+          <div></div>
+          <div>Today's deal</div>
+          <div>Shipping</div>
+          <div>Payment</div>
+          <div>Your deals</div>
+          <div></div>
+          <div>Contact</div>
+          <div></div>
+          <div></div>
     </div>
   </header>
 );
