@@ -101,9 +101,11 @@
   display: grid;
   grid-template-columns: 5fr 2fr;
   border: 1px solid $oc-gray-1;
-  background-color: $oc-gray-1;
+  // background-color: $oc-gray-1;
+  background-color: #ffffff;
   margin: auto;
   padding: auto;
+  height: 2rem;
   width : 90%;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
   .s-result-info-bar-first{
