@@ -44,7 +44,7 @@ const PostItem = ({url,title,content,category}) => {
         <div className={cx('specific')}>
           <div>
             <div className={cx('price')}>100$<strong>/day</strong></div>
-            <p>{content}</p>
+            {/* <p>{content}</p> */}
           </div>
           <div>
             <div className={cx('term')}><strong>Min</strong> 3 month</div>
