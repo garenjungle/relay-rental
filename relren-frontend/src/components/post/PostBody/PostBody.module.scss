@@ -2,23 +2,92 @@
 
 .post-body {
   .paper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     padding: 2rem;
-    padding-top: 2.5rem;
+    padding-top: 1rem;
     padding-bottom: 2.5rem;
     background: white;
-    @include material-shadow(4, 0.5);
+    // @include material-shadow(4, 0.5);
     // 위로 3rem 이동시켜 주어 파란색 배경을 침범하게 하기
-    transform: translateY(-3rem);
+    // transform: translateY(-3rem);
     margin: 0 auto;
-    min-height: 20rem;
-
-    width: 1024px;
+    min-height: 50rem;
+    width: 100rem;
     // 해상도에 따라 다른 width
-    @include media('<large') {
-      width: 768px;
+    // @include media('<large') {
+    //   width: 768px;
+    // }
+    // @include media('<medium') {
+    //   width: calc(100% - 2rem);
+    // }
+    .left {
+      width: 100%;
+      img {
+        width: 95%;
+        margin: auto;
+      }
+      .little {
+        margin-top: 2rem;
+        margin-left: 2rem;
+        height: 5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        img {
+          height: 100%;
+          margin: auto;
+          border: 1px solid;
+        } 
+      }
     }
-    @include media('<medium') {
-      width: calc(100% - 2rem);
+    .right {
+      @include material-shadow(4, 0.5);
+      font-family: "Amazon Ember",Arial,sans-serif;
+      height: 80%;
+      margin-top:2rem;
+      padding: 2rem;
+      .space {
+        padding : 2rem;
+        border-bottom:0.5px solid #cccccc;
+        strong{
+          font-size: 2rem;
+        }
+        &:hover {
+          background-color: $oc-gray-2;
+        }
+      }
+      .last {
+        padding : 2rem;
+        button{
+          font-family: "Amazon Ember",Arial,sans-serif;
+          width: 100%;
+          height: 2rem;
+          color: white;
+          font-weight: 500;
+          font-size: 1.2rem;
+          background-color: $oc-orange-6;
+          border: 1px solid $oc-gray-3;
+          @include material-shadow(3, 0.5);
+          &:hover {
+            background-color: $oc-orange-8;
+          }
+        }
+      }
+    }
+  }
+
+  .about{
+    padding-left: 5rem;
+    padding-bottom: 3rem;
+    strong{
+      font-weight: 700;
+      font-size: 1.3rem;
+      font-family: Arial,sans-serif;
+      color: $oc-orange-8;
+    }
+    li{
+      padding: 3px;
+      font-size: 0.9rem;
     }
   }
 }
