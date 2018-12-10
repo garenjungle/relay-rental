@@ -2,13 +2,51 @@
 
 .post-list {
   .post-item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     padding: 1.5rem;
     transition: all 0.15s ease-in;
+    .category {
+      font-size: 0.7rem;
+      color: #000000;
+      margin-bottom: 1rem;
+      // color: $oc-gray-5;
+    }
+    .address {
+      font-size: 0.7rem;
+      color: $oc-gray-5;
+    }
+    .specific {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+    }
+    .price {
+      color: #000000;
+      font-size: 1rem;
+      Strong {
+        font-size: 0.7rem;
+        color: $oc-gray-8;
+        font-weight: 300;
+        }
+    }
+    .term {
+      color: $oc-gray-7;
+      Strong {
+        font-size: 0.7rem;
+        color: $oc-gray-8;
+        font-weight: 300;
+        }
+    }
+    img {
+      height : 10rem;
+      width : 13rem;
+      margin: auto;
+    }
     h2 {
-      font-size: 2rem;
+      font-size: 1rem;
       font-weight: 400;
       margin: 0;
-      color: $oc-gray-8;
+      color: $oc-blue-8;
       a {
         transition: all 0.15s ease-in; // 스타일 바뀔 때 애니메이션 효과
         border-bottom: 1px solid transparent;
@@ -28,8 +66,15 @@
       color: $oc-gray-7;
     }
     .tags {
-      font-size: 0.85rem;
-      color: $oc-blue-6;
+      display: grid;
+      grid-template-columns: 1fr 8fr;
+      img {
+        align-content: left;
+        height:1rem;
+        width:1rem;
+      }
+      font-size: 0.75rem;
+      color: $oc-blue-5;
       a {
         &:hover {
           color: $oc-blue-5;
@@ -49,5 +94,30 @@
   .post-item + .post-item {
     // 아이템 사이 여백
     border-top: 1px solid $oc-gray-3;
+  }
+}
+
+.s-result-info-bar-content{
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  border: 1px solid $oc-gray-1;
+  // background-color: $oc-gray-1;
+  background-color: #ffffff;
+  margin: auto;
+  padding: auto;
+  height: 2rem;
+  width : 90%;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
+  .s-result-info-bar-first{
+    font-size: 0.8rem;
+    margin: auto;
+    margin-left: 1rem;
+    align-content: left;
+  }
+  .s-result-info-bar-second{
+    font-size: 0.8rem;
+    margin: auto;
+    margin-right: 1rem;
+    align-content: right;
   }
 }
