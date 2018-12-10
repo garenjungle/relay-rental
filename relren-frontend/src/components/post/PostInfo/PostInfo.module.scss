@@ -1,22 +1,53 @@
 @import '../../../styles/utils';
 
 .post-info {
-  background: $oc-blue-6;
-  height: 24rem;
+  background: $oc-gray-8;
+  height: 9rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   .info {
-    margin-top: -5rem; // 헤더 크기만큼 위로
+    // margin-top: -5rem; // 헤더 크기만큼 위로
     width: 1024px;
     padding: 1rem;
     color: white;
-    h1 {
-      font-weight: 300;
-      font-size: 3rem;
+    margin-left: 2rem;
+    h2 {
+      font-weight: 400;
+      font-size: 2rem;
       margin: 0;
       word-wrap: break-word; // 내용이 너무 길면 다음 줄에 작성
+      margin-bottom:0.5rem;
+
     }
+    .sub-info{
+      font-family: "Amazon Ember",Arial,sans-serif;
+      display: grid;
+      grid-template-columns: 2.3fr 2.5fr 8fr;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      margin: auto;
+      color: $oc-blue-2;
+      .right-border{
+        margin-top:0.5rem;
+        border-right: 1px solid #ffffff;
+        padding-right: 1rem;
+      }
+      .center-border{
+        margin-top:0.5rem;
+        border-right: 1px solid #ffffff;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .left-border{
+        margin-top:0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+    
+
     .tags {
       margin-top: 1rem;
       font-size: 1.25rem;

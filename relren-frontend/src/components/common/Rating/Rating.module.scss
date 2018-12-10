@@ -1,0 +1,13 @@
+@import '../../../styles/utils';
+
+.rating {
+  display: grid;
+  grid-template-columns: 1fr 30fr;
+  img {
+    align-content: left;
+    height:1.3rem;
+    width:1.3rem;
+  }
+  font-size: 1rem;
+  color: $oc-blue-2;
+}
