@@ -12,12 +12,29 @@ const Header = ({ postId, logged, onRemove }) => (
       <div className={cx('brand')}>
         <Link to="/">RelayRental.com</Link>
       </div>
-      <form accept-charset="utf-8" action="/s/ref=nb_sb_noss" className={cx('nav-searchbar')} method="GET" name="site-search" role="search">
+      <form
+        accept-charset="utf-8"
+        action="/s/ref=nb_sb_noss"
+        className={cx('nav-searchbar')}
+        method="GET"
+        name="site-search"
+        role="search"
+      >
         <div className={cx('nav-fill')}>
-          <input type="text" id="twotabsearchtextbox" value="" name="field-keywords" autocomplete="off" placeholder="" className={cx('nav-input')} dir="auto" tabindex="19"></input>
+          <input
+            type="text"
+            id="twotabsearchtextbox"
+            value=""
+            name="field-keywords"
+            autocomplete="off"
+            placeholder=""
+            className={cx('nav-input')}
+            dir="auto"
+            tabindex="19"
+          />
         </div>
-        <div className={cx("nav-right")}>
-          <button className={cx("button")}>Search</button>
+        <div className={cx('nav-right')}>
+          <button className={cx('button')}>Search</button>
         </div>
       </form>
       {logged && (
@@ -37,17 +54,19 @@ const Header = ({ postId, logged, onRemove }) => (
         </div>
       )}
     </div>
-    <div className={cx("nav-main")}>
-          <div></div>
-          <div></div>
-          <div>Today's deal</div>
-          <div>Shipping</div>
-          <div>Payment</div>
-          <div>Your deals</div>
-          <div></div>
-          <div>Contact</div>
-          <div></div>
-          <div></div>
+    <div className={cx('nav-main')}>
+      <div />
+      <div />
+      <div>Today's deal</div>
+      <div>Shipping</div>
+      <div>Payment</div>
+      <div>Your deals</div>
+      <div>
+        <Link to="/form">Sell</Link>
+      </div>
+      <div>Contact</div>
+      <div />
+      <div />
     </div>
   </header>
 );
