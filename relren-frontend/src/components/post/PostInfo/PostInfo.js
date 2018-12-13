@@ -18,15 +18,6 @@ const PostInfo = ({ publishedDate, title, tags }) => (
         <div className={cx('center-border')}>756 answered questions</div>
         <div className={cx('left-border')}>{moment(publishedDate).format('ll')}</div>
       </div>
-      {/* <div className={cx('tags')}>
-        {// tags가 존재할 때만 map을 실행
-        tags &&
-          tags.map(tag => (
-            <Link key={tag} to={`/tag/${tag}`}>
-              #{tag}
-            </Link>
-          ))}
-      </div> */}
     </div>
   </div>
 );
