@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PostInfo from 'components/post/PostInfo';
 import PostBody from 'components/post/PostBody';
-import PostQnA from 'components/post/PostQnA';
+import PostComment from 'components/post/PostComment';
 import * as postActions from 'store/modules/post';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -31,7 +31,7 @@ class Post extends Component {
       <div>
         <PostInfo title={title} publishedDate={publishedDate} tags={tags} />
         <PostBody body={body} />
-        <PostQnA />
+        <PostComment />
       </div>
     );
   }
