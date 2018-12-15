@@ -11,7 +11,7 @@ const Footer = ({ onLoginClick, onSignupClick, logged }) => (
       reactblog
     </Link>
     <div onClick={onLoginClick} className={cx('admin-login')}>
-      {logged ? '로그아웃' : '관리자 로그인'}
+      {logged ? '로그아웃' : '로그인'}
     </div>
     <div onClick={onSignupClick} className={cx('admin-login')}>
       {logged ? null : '회원가입'}

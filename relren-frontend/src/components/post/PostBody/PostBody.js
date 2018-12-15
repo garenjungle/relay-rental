@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const PostBody = ({ body }) => (
+const PostBody = ({ body, handleReservationClick }) => (
   <div className={cx('post-body')}>
     <div className={cx('paper')}>
       <div className={cx('left')}>
@@ -21,7 +21,9 @@ const PostBody = ({ body }) => (
         <div className={cx('space')}>State : Available</div>
         <div className={cx('space')}>Min term : 3 month</div>
         <div className={cx('space')}>Writer : reiui9@naver.com </div>
-        <div className={cx('last')}><button>Reservation</button></div>
+        <div className={cx('last')}>
+          <button onClick={handleReservationClick}>Reservation</button>
+        </div>
       </div>
     </div>
     <div className={cx('about')}>
