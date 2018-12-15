@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './PostBody.module.scss';
 import classNames from 'classnames/bind';
-import MarkdownRender from 'components/common/MarkdownRender';
 
 const cx = classNames.bind(styles);
 
@@ -18,13 +17,11 @@ const PostBody = ({ body }) => (
         </div>
       </div>
       <div className={cx('right')}>
-        {/* {body} */}
         <div className={cx('space')}>$<strong>299</strong>.99</div>
         <div className={cx('space')}>State : Available</div>
         <div className={cx('space')}>Min term : 3 month</div>
         <div className={cx('space')}>Writer : reiui9@naver.com </div>
         <div className={cx('last')}><button>Reservation</button></div>
-        {/* <MarkdownRender markdown={body} /> */}
       </div>
     </div>
     <div className={cx('about')}>
