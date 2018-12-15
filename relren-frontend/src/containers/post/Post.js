@@ -20,7 +20,7 @@ class Post extends Component {
   handleReservationClick = async () => {
     const { BaseActions, logged, userId } = this.props;
     if (!logged) {
-      BaseActions.showModal('login');
+      BaseActions.showModal('reservation');
       BaseActions.initializeUserModal();
       // try {
       //   await BaseActions.logout(userId);

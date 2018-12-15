@@ -27,3 +27,5 @@ export const login = ( userId, password ) => remote.post('/api/auth/login', { us
 export const checkLogin = () => axios.get('/api/auth/check');
 export const logout = ( userId ) => remote.post('/api/auth/logout', { userId });
 export const signup = ( userId, password, userName ) => remote.post('/api/auth/signin', { userId, password, userName });
+
+export const reservation = ( ) => axios.get('/api/auth/check');

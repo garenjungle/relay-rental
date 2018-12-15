@@ -16,6 +16,8 @@ const CHANGE_PASSWORD_INPUT = 'base/CHANGE_PASSWORD_INPUT';
 const CHANGE_USERNAME_INPUT = 'base/CHANGE_USERNAME_INPUT';
 const INITIALIZE_USER_MODAL = 'base/INITIALIZE_USER_MODAL';
 
+const RESERVATION = 'base/RESERVATION';
+
 const TEMP_LOGIN = 'base/TEMP_LOGIN';
 
 // action creators
@@ -30,6 +32,8 @@ export const changeIdInput = createAction(CHANGE_ID_INPUT);
 export const changePasswordInput = createAction(CHANGE_PASSWORD_INPUT);
 export const changeUserNameInput = createAction(CHANGE_USERNAME_INPUT);
 export const initializeUserModal = createAction(INITIALIZE_USER_MODAL);
+
+export const reservation = createAction(RESERVATION, api.reservation);
 
 export const tempLogin = createAction(TEMP_LOGIN);
 
@@ -81,6 +85,15 @@ export default handleActions(
         return state
           .setIn(['userModal', 'error'], true)
           .setIn(['userModal', 'password'], '');
+      },
+    }),
+    ...pender({
+      type: RESERVATION,
+      onSuccess: (state, action) => {
+        return '';
+      },
+      onError: (state, action) => {
+        return '';
       },
     }),
     ...pender({
