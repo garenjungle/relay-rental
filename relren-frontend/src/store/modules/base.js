@@ -90,10 +90,10 @@ export default handleActions(
     ...pender({
       type: RESERVATION,
       onSuccess: (state, action) => {
-        return '';
+        return state;
       },
       onError: (state, action) => {
-        return '';
+        return state;
       },
     }),
     ...pender({
