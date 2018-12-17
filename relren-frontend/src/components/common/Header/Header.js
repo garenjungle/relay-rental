@@ -57,13 +57,18 @@ const Header = ({ postId, logged, onRemove }) => (
     <div className={cx('nav-main')}>
       <div />
       <div />
-      <div>Today's deal</div>
+      {/* <div>Today's deal</div>
       <div>Shipping</div>
-      <div>Payment</div>
-      <div>Your deals</div>
+      <div>Payment</div> */}
+      <div>
+        <Link to="/order">Your order</Link>
+      </div>
       <div>
         <Link to="/form">Sell</Link>
       </div>
+      <div />
+      <div />
+      <div />
       <div>Contact</div>
       <div />
       <div />

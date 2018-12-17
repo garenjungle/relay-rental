@@ -6,6 +6,7 @@ import {
   PostPage,
   EditorPage,
   FormPage,
+  OrderPage,
   NotFoundPage,
 } from 'pages';
 import Base from 'containers/common/Base';
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/post/:id" component={PostPage} />
         <Route path="/editor" component={EditorPage} />
         <Route path="/form" component={FormPage} />
+        <Route path="/order" component={OrderPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <Base />
