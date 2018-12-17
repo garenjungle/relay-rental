@@ -27,3 +27,19 @@ export const login = ( userId, password ) => remote.post('/api/auth/login', { us
 export const checkLogin = () => axios.get('/api/auth/check');
 export const logout = ( userId ) => remote.post('/api/auth/logout', { userId });
 export const signup = ( userId, password, userName ) => remote.post('/api/auth/signin', { userId, password, userName });
+
+/* BELOW API SHOULD BE IMPLEMETED 
+POST /api/auth/signin
+POST /api/auth/signout
+POST /api/auth/login
+POST /api/auth/logout
+POST /api/auth/checkUserID
+GET /api/auth/check
+POST /api/posts/
+GET /api/posts/detail
+POST /api/posts/comment
+GET /api/posts/search
+GET /api/posts/search?{userId=}
+GET /api/posts/search?{itemName=}
+GET /api/posts/search?{category=}
+*/
