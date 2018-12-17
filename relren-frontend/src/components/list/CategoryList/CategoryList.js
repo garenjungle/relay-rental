@@ -58,9 +58,9 @@ const CategoryList = () => {
 
   return (
     <div>
-      <div className={cx('category-list')}>{categoryList}</div>
-      <div className={cx('category-list')}>{categoryList}</div>
-      <div className={cx('category-list')}>{categoryList}</div>
+      <div className={cx('main')}>
+        <img src='./main.jpg'/>
+      </div>
       <div className={cx('category-list')}>{categoryList}</div>
     </div>
   );
